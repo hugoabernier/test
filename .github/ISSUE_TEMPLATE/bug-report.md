@@ -1,3 +1,4 @@
+---
 name: 🐞 Bug or Error Report
 description: Submit a bug or error report.
 labels: ['Needs: Triage', 'type:bug-suspected']
@@ -114,3 +115,4 @@ body:
     description: What did you expect to happen when the reproduce steps are followed?
   validations:
     required: true
+---
