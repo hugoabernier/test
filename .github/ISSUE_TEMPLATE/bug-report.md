@@ -1,118 +1,63 @@
----
-name: 🐞 Bug or Error Report
-description: Submit a bug or error report.
-labels: ['Needs: Triage', 'type:bug-suspected']
-
+name: Bug Report
+description: File a bug report
+title: "[Bug]: "
+labels: [bug, triage]
+assignees:
+- monalisa
+- nat
 body:
 - type: markdown
   attributes:
     value: |
-      - [x] Bug
-
-      This is for SharePoint development bugs. If your submission is now about SharePoint development such as out-of-the-box capabilities, SharePoint configuration, please use refer to other support options listed on the [new issue chooser page](https://github.com/SharePoint/sp-dev-docs/issues/new/choose). Please provide as much information as possible so we can best address your submission. Thanks!
-
-      - Follow our guidance on [How To Create Good Issues](https://github.com/sharepoint/sp-dev-docs/wiki/How-to-Create-Good-Issues).
-      - Remember to include sufficient details and context.
-      - If you have multiple questions, suggestions, or bugs, please submit them in separate issues.
-
-      Please provide the following details about your environment. 🚨  *If this section is ignored, your submission will be flagged as **incomplete** & automatically closed.*
-
-- type: dropdown
+      Thanks for taking the time to fill out this bug report!
+- type: input
+  id: contact
   attributes:
-    label: Target SharePoint environment
-    options:
-      - SharePoint Online
-      - SharePoint Server 2019 (on-premise)
-      - SharePoint Server 2016 (on-premise)
-      - other (enter in the "Additional environment details" area below)
+    label: Contact Details
+    description: How can we get in touch with you if we need more info?
+    placeholder: ex. email@example.com
+  validations:
+    required: false
+- type: textarea
+  id: what-happened
+  attributes:
+    label: What happened?
+    description: Also tell us, what did you expect to happen?
+    placeholder: Tell us what you see!
+    value: "A bug happened!"
   validations:
     required: true
-
 - type: dropdown
+  id: version
   attributes:
-    label: What SharePoint development model, framework, SDK or API is this about?
-    description: |
-      What tooling, frameworks, SDKs, or official libraries is this related to? Please include the version details in the *"Additional environment details"* field below.
-
-      **This form is only for officially supported Microsoft products**.
-
-      *If your question is about a third-party or another library/SDK/tooling that is not officially supported by Microsoft, please submit your issue to that project's relevant forum.*
-
-      **NOTE**:💥 If you select SharePoint Framework, you must include the following version numbers in the **Additional environment details** section below: 1️⃣  SharePoint Framework & 2️⃣  Node.js (`node -v`).
+    label: Version
+    description: What version of our software are you running?
     options:
-      - 💥 SharePoint Framework
-      - SharePoint Add-ins
-      - SharePoint CSOM
-      - SharePoint REST API
-      - Site designs & site scripts
-      - Declarative list formatting
-      - not applicable
-      - other (enter in the "Additional environment details" area below)
+    - 1.0.2 (Default)
+    - 1.0.3 (Edge)
   validations:
     required: true
-
 - type: dropdown
+  id: browsers
   attributes:
-    label: Developer environment
+    label: What browsers are you seeing the problem on?
+    multiple: true
     options:
-      - Windows
-      - macOS
-      - Linux
-
+    - Firefox
+    - Chrome
+    - Safari
+    - Microsoft Edge
+- type: textarea
+  id: logs
+  attributes:
+    label: Relevant log output
+    description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+    render: shell
 - type: checkboxes
+  id: terms
   attributes:
-    label: What browser(s) / client(s) have you tested
-    description: |
-      Select the browser(s)/clients this submission is relevant to.
-
-      **NOTE**:💥 If you select an item with this icon, you must include the version number of the selection in the **Additional environment details** section below.
+    label: Code of Conduct
+    description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
     options:
-      - label: 💥 Internet Explorer
-      - label: 💥 Microsoft Edge
-      - label: 💥 Google Chrome
-      - label: 💥 FireFox
-      - label: 💥 Safari
-      - label: mobile (iOS/iPadOS)
-      - label: mobile (Android)
-      - label: not applicable
-      - label: other (enter in the "Additional environment details" area below)
-
-- type: textarea
-  attributes:
-    label: Additional environment details
-    description: Include as much detail about the environment you're targetting. This is required if "other (enter below)" is selected in the previous field.
-    value: |
-      - browser version
-      - SPFx version
-      - Node.js version
-      - etc
-
-- type: markdown
-  attributes:
-    value: |
-      Provide a clear & concise description of what the bug is. Please follow our guidance on [How To Create Good Issues](https://github.com/sharepoint/sp-dev-docs/wiki/How-to-Create-Good-Issues) which explains how to apply formatting, adding references & resources, screenshots, etc. **Do not attach ZIP files** of your code or compiled projects - instead, please publish your code to a public GitHub repo & post a link to it.
-
-- type: textarea
-  attributes:
-    label: Describe the bug / error
-  validations:
-    required: true
-
-- type: textarea
-  attributes:
-    label: Steps to reproduce
-    description: How do you reproduce this? Please provide as much step-by-step detail as possible.
-    value: |
-      1.
-      2.
-      3.
-  validations:
-    required: true
-
-- type: textarea
-  attributes:
-    label: Expected behavior
-    description: What did you expect to happen when the reproduce steps are followed?
-  validations:
-    required: true
----
+    - label: I agree to follow this project's Code of Conduct
+      required: true
